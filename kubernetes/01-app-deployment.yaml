@@ -1,0 +1,33 @@
+apiVersion: extensions/v1beta1
+kind: "Deployment"
+metadata:
+  name: #{APP_NAME}-#{VERSION}
+  namespace: #{APP_NAME}
+  labels:
+    app: #{APP_NAME}
+    release: v#{VERSION}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: #{APP_NAME}
+      release: v#{VERSION}
+  template:
+    metadata:
+      labels:
+        app: #{APP_NAME}
+        release: v#{VERSION}
+    spec:
+      containers:
+      - name: #{APP_NAME}
+        image: #{GCLOUD_DOCKER_HOST}/#{GCLOUD_CLUSTER_PROJECT}/#{GCLOUD_DOCKER_IMAGE}:#{VERSION}
+        ports:
+        - containerPort: 5000
+          protocol: TCP
+        resources:
+          requests:
+            memory: "100Mi"
+            cpu: "100m"
+          limits:
+            memory: "200Mi"
+            cpu: "200m"  
