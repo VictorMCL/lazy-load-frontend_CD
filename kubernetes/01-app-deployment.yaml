@@ -21,6 +21,9 @@ spec:
       containers:
       - name: #{APP_NAME}
         image: #{DOCKER_HOST}/#{DOCKER_IMAGE}:#{VERSION}
+        env:
+        - name: API_SERVER
+          value: "http://localhost:9000"
         ports:
         - containerPort: 4200
           protocol: TCP
