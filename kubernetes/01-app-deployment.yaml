@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: #{APP_NAME}
-        image: #{GCLOUD_DOCKER_HOST}/#{GCLOUD_CLUSTER_PROJECT}/#{GCLOUD_DOCKER_IMAGE}:#{VERSION}
+        image: #{DOCKER_HOST}/#{DOCKER_IMAGE}:#{VERSION}
         ports:
         - containerPort: 5000
           protocol: TCP
