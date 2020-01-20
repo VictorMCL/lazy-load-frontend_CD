@@ -22,7 +22,7 @@ spec:
       - name: #{APP_NAME}
         image: #{DOCKER_HOST}/#{DOCKER_IMAGE}:#{VERSION}
         ports:
-        - containerPort: 5000
+        - containerPort: 4200
           protocol: TCP
         resources:
           requests:
