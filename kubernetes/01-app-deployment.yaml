@@ -1,25 +1,25 @@
 apiVersion: extensions/v1beta1
 kind: "Deployment"
 metadata:
-  name: #{APP_NAME}-#{VERSION}
+  name: #{DOCKER_IMAGE}-#{VERSION}
   namespace: #{APP_NAME}
   labels:
-    app: #{APP_NAME}
+    app: #{DOCKER_IMAGE}
     release: v#{VERSION}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: #{APP_NAME}
+      app: #{DOCKER_IMAGE}
       release: v#{VERSION}
   template:
     metadata:
       labels:
-        app: #{APP_NAME}
+        app: #{DOCKER_IMAGE}
         release: v#{VERSION}
     spec:
       containers:
-      - name: #{APP_NAME}
+      - name: #{DOCKER_IMAGE}
         image: #{DOCKER_HOST}/#{DOCKER_IMAGE}:#{VERSION}
         env:
         - name: API_SERVER
@@ -34,9 +34,3 @@ spec:
           limits:
             memory: "300Mi"
             cpu: "500m"  
-        livenessProbe:
-          httpGet:
-            path: /
-            port: 4200
-          initialDelaySeconds: 3
-          periodSeconds: 3

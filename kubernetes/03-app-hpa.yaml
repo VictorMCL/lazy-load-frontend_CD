@@ -1,15 +1,15 @@
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: #{APP_NAME}-hpa
+  name: #{DOCKER_IMAGE}-hpa
   namespace: #{APP_NAME}
   labels:
-    app: #{APP_NAME}
+    app: #{DOCKER_IMAGE}
 spec:
   scaleTargetRef:
     apiVersion: extensions/v1beta1
     kind: Deployment
-    name: #{APP_NAME}-#{VERSION}
+    name: #{DOCKER_IMAGE}-#{VERSION}
   minReplicas: 1
   maxReplicas: 5
   targetCPUUtilizationPercentage: 80

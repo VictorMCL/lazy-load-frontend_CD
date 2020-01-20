@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: #{APP_NAME}-service
+  name: #{DOCKER_IMAGE}-service
   namespace: #{APP_NAME}
   labels:
-    app: #{APP_NAME}
+    app: #{DOCKER_IMAGE}
     env: #{DEPLOYMENT}
 spec:
   type: LoadBalancer
