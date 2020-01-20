@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: $APP_NAME
+  name: #{APP_NAME}
   labels: 
-    app: $APP_NAME
-    env: $DEPLOYMENT
+    app: #{APP_NAME}
+    env: #{DEPLOYMENT}
