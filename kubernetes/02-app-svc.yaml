@@ -9,7 +9,7 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-    release: v#{VERSION}
+    release: #{DOCKER_IMAGE}-v#{VERSION}
   ports:
     - port: 80
       targetPort: 4200

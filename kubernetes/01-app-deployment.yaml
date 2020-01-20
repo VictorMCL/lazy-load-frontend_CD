@@ -5,18 +5,18 @@ metadata:
   namespace: #{APP_NAME}
   labels:
     app: #{DOCKER_IMAGE}
-    release: v#{VERSION}
+    release: #{DOCKER_IMAGE}-v#{VERSION}
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: #{DOCKER_IMAGE}
-      release: v#{VERSION}
+      release: #{DOCKER_IMAGE}-v#{VERSION}
   template:
     metadata:
       labels:
         app: #{DOCKER_IMAGE}
-        release: v#{VERSION}
+        release: #{DOCKER_IMAGE}-v#{VERSION}
     spec:
       containers:
       - name: #{DOCKER_IMAGE}
